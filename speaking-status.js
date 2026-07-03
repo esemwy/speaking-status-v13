@@ -75,6 +75,9 @@ startMicrophoneMonitor = function() {
       else game.user.speaking = false;
       if (wasSpeaking != game.user.speaking) speakingSocket.emit(game.user.id, game.user.speaking);
     }, 50)
+  }).catch((err) => {
+    console.warn("speaking-status | Unable to access microphone:", err);
+    ui.notifications?.warn("Speaking Status: unable to access your microphone.");
   });
 }
 
