@@ -1,28 +1,33 @@
-
 {
   "id": "speaking-status",
   "name": "speaking-status",
   "title": "Speaking Status",
   "description": "Indicates when a player is speaking using the microphone'",
-  "authors": [{"name":"Xaukael"}],
+  "authors": [
+    {
+      "name": "Xaukael"
+    }
+  ],
   "version": "1.3.0",
   "socket": true,
   "compatibility": {
-      "minimum": "10",
-      "verified": "13"
-    },
-  "scripts": ["speaking-status.js"],
+    "minimum": "10",
+    "verified": "14"
+  },
+  "scripts": [
+    "speaking-status.js"
+  ],
   "relationships": {
-  "requires": [
-    {
-      "id": "socketlib",
-      "type": "module",
-      "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
-      "compatibility": {
-        "minimum": "1.0.0"
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
+        "compatibility": {
+          "minimum": "1.0.0"
+        }
       }
-    }
-  ]
+    ]
   },
   "url": "https://github.com/esemwy/speaking-status-v13/",
   "manifest": "https://github.com/esemwy/speaking-status-v13/releases/latest/download/module.json",

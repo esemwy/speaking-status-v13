@@ -66,6 +66,8 @@ Hooks.on('ready',()=>{
 });
 
 startMicrophoneMonitor = function() {
+  // No microphone API outside a secure context (plain http) or without A/V hardware.
+  if (!navigator.mediaDevices?.getUserMedia) return;
   navigator.mediaDevices.getUserMedia({audio:true, video:false}).then( function(stream){
     game.audio.startLevelReports("speaking-status", stream, (db)=>{
       let wasSpeaking = game.user.speaking
@@ -75,7 +77,7 @@ startMicrophoneMonitor = function() {
       else game.user.speaking = false;
       if (wasSpeaking != game.user.speaking) speakingSocket.emit(game.user.id, game.user.speaking);
     }, 50)
-  });
+  }).catch(err => console.warn("speaking-status | microphone unavailable:", err.message));
 }
 
 stopMicrophoneMonitor = function() {
